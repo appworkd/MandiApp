@@ -6,13 +6,15 @@ android {
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
+    androidExtensions{
+        experimental=true
+    }
     defaultConfig {
         applicationId "com.appwork.mandiapp"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,6 +34,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     //Design
     implementation 'com.google.android.material:material:1.2.1'
+    //Groupie
+    implementation "com.xwray:groupie:2.8.1"
+    implementation "com.xwray:groupie-kotlin-android-extensions:2.8.1"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

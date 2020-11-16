@@ -1,5 +1,6 @@
 package com.appwork.mandiapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_consent.*
@@ -22,6 +23,14 @@ class ConsentActivity : AppCompatActivity() {
             pieces = intent.getIntExtra("pieces", 0)
             tvPieces.text = pieces.toString()
         }
+        if (intent.hasExtra("pieceWt")) {
+            pieceWt = intent.getIntExtra("pieceWt", 0)
+            tvWtPiecesValue.text = pieceWt.toString()
+        }
+        if (intent.hasExtra("remainWt")) {
+            remainWt = intent.getIntExtra("remainWt", 0)
+            tvRemainWtValue.text = remainWt.toString()
+        }
         if (intent.hasExtra("rates")) {
             rates = intent.getIntExtra("rates", 0)
             tvCropRateValue.text = rates.toString()
@@ -33,15 +42,6 @@ class ConsentActivity : AppCompatActivity() {
         }
         if (intent.hasExtra("wtChanges")) {
             wtCharges = intent.getIntExtra("wtChanges", 0)
-
-        }
-        if (intent.hasExtra("pieceWt")) {
-            pieceWt = intent.getIntExtra("pieceWt", 0)
-            tvWtPiecesValue.text = pieceWt.toString()
-        }
-        if (intent.hasExtra("remainWt")) {
-            remainWt = intent.getIntExtra("remainWt", 0)
-            tvRemainWtValue.text = remainWt.toString()
         }
         if (intent.hasExtra("aadatCharge")) {
             aadatCharges = intent.getIntExtra("aadatCharge", 0)
@@ -63,7 +63,18 @@ class ConsentActivity : AppCompatActivity() {
         tvCovFee.text = adatTotal.toString()
         val totalAmount = cropAmount!! - adatTotal
         tvTotalAMount.text = totalAmount.toInt().toString() + " Rs."
-
+        btnSave.setOnClickListener {
+            val intent = Intent(this, CustomerBillDetailsActivity::class.java)
+            intent.putExtra("total",total)
+            intent.putExtra("pieces",pieces)
+            intent.putExtra("pieceWt",pieceWt)
+            intent.putExtra("remainWt",remainWt)
+            intent.putExtra("rates",rates)
+            intent.putExtra("cropAmount",cropAmount)
+            intent.putExtra("aadatCharge",adatTotal)
+            intent.putExtra("finalTotal",totalAmount)
+            startActivity(intent)
+        }
     }
 
     private fun calculateCropAmount(total: Int, rates: Int): Int {
