@@ -6,6 +6,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import com.appwork.util.Constants.PIECE_VAL
+import com.appwork.util.Constants.PIECE_WT_VAL
+import com.appwork.util.Constants.RATES_VAL
+import com.appwork.util.Constants.REMAIN_WT_VAL
+import com.appwork.util.Constants.TOTAL_WT_VAL
 import kotlinx.android.synthetic.main.activity_rates.*
 
 class RatesActivity : AppCompatActivity(), TextWatcher {
@@ -17,17 +22,17 @@ class RatesActivity : AppCompatActivity(), TextWatcher {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rates)
         edtRates.addTextChangedListener(this)
-        if (intent.hasExtra("total")) {
-            totalWt = intent.getIntExtra("total", 0)
+        if (intent.hasExtra(TOTAL_WT_VAL)) {
+            totalWt = intent.getIntExtra(TOTAL_WT_VAL, 0)
         }
-        if (intent.hasExtra("pieces")) {
-            pieces = intent.getIntExtra("pieces", 0)
+        if (intent.hasExtra(PIECE_VAL)) {
+            pieces = intent.getIntExtra(PIECE_VAL, 0)
         }
-        if (intent.hasExtra("pieceWt")) {
-            pieceWt = intent.getIntExtra("pieceWt", 0)
+        if (intent.hasExtra(PIECE_WT_VAL)) {
+            pieceWt = intent.getIntExtra(PIECE_WT_VAL, 0)
         }
-        if (intent.hasExtra("remainWt")) {
-            remainWt = intent.getIntExtra("remainWt", 0)
+        if (intent.hasExtra(REMAIN_WT_VAL)) {
+            remainWt = intent.getIntExtra(REMAIN_WT_VAL, 0)
         }
         fabDone.setOnClickListener {
             if (edtRates.text.toString().isEmpty()) {
@@ -37,11 +42,11 @@ class RatesActivity : AppCompatActivity(), TextWatcher {
             }
             val rates = edtRates.text.toString().toInt()
             val intent = Intent(this, ChargesActivity::class.java)
-            intent.putExtra("pieces", pieces)
-            intent.putExtra("rates", rates)
-            intent.putExtra("total", totalWt)
-            intent.putExtra("pieceWt",pieceWt)
-            intent.putExtra("remainWt",remainWt)
+            intent.putExtra(PIECE_VAL, pieces)
+            intent.putExtra(RATES_VAL, rates)
+            intent.putExtra(TOTAL_WT_VAL, totalWt)
+            intent.putExtra(PIECE_WT_VAL,pieceWt)
+            intent.putExtra(REMAIN_WT_VAL,remainWt)
             startActivity(intent)
         }
     }

@@ -18,12 +18,12 @@ class SplashActivity : AppCompatActivity() {
         animTopBottom = AnimationUtils.loadAnimation(this, R.anim.top_animator)
         animLeftRight = AnimationUtils.loadAnimation(this, R.anim.left_to_right_animator)
         tvSplashHead.animation = animTopBottom
-
-        Handler().postDelayed(Runnable {
+        val intent = Intent(this, WeightActivity::class.java)
+        startActivity(intent)
+       /* Handler().postDelayed(Runnable {
             tvSplashSubHead.animation = animLeftRight
             tvSplashSubHead.visibility = View.VISIBLE
-            val intent = Intent(this, WeightActivity::class.java)
-            startActivity(intent)
-        }, 1000)
+
+        }, 1000)*/
     }
 }

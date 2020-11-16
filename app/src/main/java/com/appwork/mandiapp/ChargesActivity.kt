@@ -6,6 +6,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import com.appwork.util.Constants.PIECE_FOR_CAL_VAL
+import com.appwork.util.Constants.PIECE_VAL
+import com.appwork.util.Constants.PIECE_WT_VAL
+import com.appwork.util.Constants.RATES_VAL
+import com.appwork.util.Constants.REMAIN_WT_VAL
+import com.appwork.util.Constants.TOTAL_WT_VAL
+import com.appwork.util.Constants.WT_CHARGES_VAL
 import kotlinx.android.synthetic.main.activity_charges.*
 
 class ChargesActivity : AppCompatActivity(), TextWatcher {
@@ -17,34 +24,41 @@ class ChargesActivity : AppCompatActivity(), TextWatcher {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_charges)
-        if (intent.hasExtra("pieces")) {
-            pieces = intent.getIntExtra("pieces", 0)
+        if (intent.hasExtra(PIECE_VAL)) {
+            pieces = intent.getIntExtra(PIECE_VAL, 0)
         }
-        if (intent.hasExtra("rates")) {
-            rates = intent.getIntExtra("rates", 0)
+        if (intent.hasExtra(RATES_VAL)) {
+            rates = intent.getIntExtra(RATES_VAL, 0)
         }
-        if (intent.hasExtra("pieceWt")) {
-            pieceWt = intent.getIntExtra("pieceWt", 0)
+        if (intent.hasExtra(PIECE_WT_VAL)) {
+            pieceWt = intent.getIntExtra(PIECE_WT_VAL, 0)
         }
-        if (intent.hasExtra("remainWt")) {
-            remainWt = intent.getIntExtra("remainWt", 0)
+        if (intent.hasExtra(REMAIN_WT_VAL)) {
+            remainWt = intent.getIntExtra(REMAIN_WT_VAL, 0)
         }
-        if (intent.hasExtra("total")) {
-            total = intent.getIntExtra("total", 0)
+        if (intent.hasExtra(TOTAL_WT_VAL)) {
+            total = intent.getIntExtra(TOTAL_WT_VAL, 0)
         }
+        edtCalPieces.setText(pieces.toString())
         fabGo.setOnClickListener {
             if (edtWtCharges.text.isNullOrEmpty()) {
                 tilWtCharge.isErrorEnabled = true
                 tilWtCharge.error = "Please enter wt charges"
                 return@setOnClickListener
             }
+            if (edtCalPieces.text.isNullOrEmpty()) {
+                tilCalPieces.isErrorEnabled = true
+                tilCalPieces.error = "Please enter pieces"
+                return@setOnClickListener
+            }
             val intent = Intent(this, AadatChargeActivity::class.java)
-            intent.putExtra("pieces", pieces)
-            intent.putExtra("rates", rates)
-            intent.putExtra("total", total)
-            intent.putExtra("pieceWt",pieceWt)
-            intent.putExtra("remainWt",remainWt)
-            intent.putExtra("wtChanges", edtWtCharges.text.toString().toInt())
+            intent.putExtra(PIECE_VAL, pieces)
+            intent.putExtra(RATES_VAL, rates)
+            intent.putExtra(TOTAL_WT_VAL, total)
+            intent.putExtra(PIECE_WT_VAL, pieceWt)
+            intent.putExtra(REMAIN_WT_VAL, remainWt)
+            intent.putExtra(WT_CHARGES_VAL, edtWtCharges.text.toString().toInt())
+            intent.putExtra(PIECE_FOR_CAL_VAL, edtCalPieces.text.toString().toInt())
             startActivity(intent)
         }
     }

@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import com.appwork.util.Constants.PIECE_VAL
+import com.appwork.util.Constants.PIECE_WT_VAL
+import com.appwork.util.Constants.REMAIN_WT_VAL
+import com.appwork.util.Constants.TOTAL_WT_VAL
 import kotlinx.android.synthetic.main.activity_weight.*
 import kotlinx.android.synthetic.main.container_seller.*
 
@@ -40,10 +44,10 @@ class WeightActivity : AppCompatActivity(), TextWatcher {
         val remainWtValue = edtRemainWt.text?.trim().toString().toInt()
         val totalWt = (pieceValue * pieceWtValue) + remainWtValue
         val intent = Intent(this, RatesActivity::class.java)
-        intent.putExtra("total",totalWt)
-        intent.putExtra("pieces",pieceValue)
-        intent.putExtra("pieceWt",pieceWtValue)
-        intent.putExtra("remainWt",remainWtValue)
+        intent.putExtra(TOTAL_WT_VAL,totalWt)
+        intent.putExtra(PIECE_VAL,pieceValue)
+        intent.putExtra(PIECE_WT_VAL,pieceWtValue)
+        intent.putExtra(REMAIN_WT_VAL,remainWtValue)
         startActivity(intent)
     }
 
