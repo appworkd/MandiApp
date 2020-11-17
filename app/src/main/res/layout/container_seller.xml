@@ -10,10 +10,10 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
         android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,12 +21,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPieces"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        app:boxCornerRadiusTopEnd="@dimen/dimen_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view">
@@ -35,19 +35,19 @@
             android:id="@+id/edtPieces"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pieces"
+            android:hint="@string/txt_pieces"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPiecesWt"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        app:boxCornerRadiusTopEnd="@dimen/dimen_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPieces">
@@ -56,19 +56,19 @@
             android:id="@+id/edtPiecesWt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pieces wt"
+            android:hint="@string/txt_pieces_wt"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilRemainWt"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        app:boxCornerRadiusTopEnd="@dimen/dimen_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPiecesWt">
@@ -77,7 +77,7 @@
             android:id="@+id/edtRemainWt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Remain Wt."
+            android:hint="@string/txt_remain_wt"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -86,9 +86,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Weights"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:text="@string/txt_wts"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
         android:textColor="@color/colorWhite"

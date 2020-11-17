@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">Mandi Hisab</string>
+    <string name="txt_few_steps">Few more \nsteps</string>
+    <string name="txt_adat_charges">Adat Charges</string>
+    <string name="txt_charges_1000">Charges/1000</string>
+    <string name="txt_last_step">Last Step</string>
+    <string name="txt_charges">Charges</string>
+    <string name="txt_wting_charges">Weighting Charges</string>
+    <string name="txt_pieces">Pieces</string>
+    <string name="txt_wts">Weights</string>
+    <string name="txt_pieces_wt">Pieces Wt</string>
+    <string name="txt_remain_wt">Remain Wt.</string>
+    <string name="txt_details">Details</string>
+    <string name="txt_wt_pc">Wt/pc(Kgs)</string>
+    <string name="txt_rm_wt">Rm Wt(Kgs)</string>
+    <string name="txt_sign_mul">*</string>
+    <string name="txt_sign_plus">+</string>
+    <string name="txt_sign_equal">=</string>
+    <string name="txt_sign_minus">-</string>
+    <string name="txt_total">Total</string>
+    <string name="txt_total_rs">Total(Rs)</string>
+    <string name="txt_total_wt">Total Wt.</string>
+    <string name="txt_crop_rs">Crop R(Rs)</string>
+    <string name="txt_rs">Rs.</string>
+    <string name="txt_amount_rs">Amount(Rs)</string>
+    <string name="txt_kgs">Kgs</string>
+    <string name="txt_total_wt_kgs">Total Wt(Kgs)</string>
+    <string name="txt_crop_price_rs">Crop P(Rs)</string>
+    <string name="txt_crop_wt_rs">Wt C(Rs)</string>
+    <string name="txt_adat_rs">Adt C(Rs)</string>
+    <string name="txt_con_fee">Conv F(Rs)</string>
+    <string name="txt_edit">Edit</string>
+    <string name="txt_save">Save</string>
+    <string name="txt_name">Name</string>
+    <string name="txt_date">Date</string>
+    <string name="txt_bill_details">Bill Details</string>
+    <string name="txt_kharch">Kharch</string>
+    <string name="txt_great">Great</string>
+    <string name="txt_enter_rates">Enter Rates</string>
+    <string name="txt_rates">Rates</string>
+    <string name="txt_slogan">Hissab hua asan</string>
+    <string name="txt_add">Add</string>
+    <string name="txt_amount">Amount</string>
 </resources>

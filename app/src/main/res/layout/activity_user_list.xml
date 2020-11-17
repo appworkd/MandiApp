@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorGreyLight"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".UserListActivity"
-    android:background="@color/colorGreyLight">
+    tools:context=".UserListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
         android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,12 +21,12 @@
         tools:listitem="@layout/iv_user" />
 
     <ImageView
-        android:visibility="gone"
         android:id="@+id/ivNoData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
         android:src="@drawable/no_data_found"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,10 +36,11 @@
         android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="@dimen/dimen_32dp"
+        android:layout_marginBottom="@dimen/dimen_32dp"
         android:background="@color/colorAccent"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add" />
