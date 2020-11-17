@@ -557,6 +557,7 @@
     </ScrollView>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btnEdit"
         android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"

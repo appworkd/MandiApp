@@ -1,8 +1,10 @@
 package com.appwork.mandiapp
 
+import android.app.ProgressDialog.show
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.appwork.mandiapp.fragments.ChangeValueFragment
 import com.appwork.util.Constants.AADAT_CHARGES_VAL
 import com.appwork.util.Constants.CROP_AMOUNT_VAL
 import com.appwork.util.Constants.FINAL_TOTAL_VAL
@@ -15,7 +17,7 @@ import com.appwork.util.Constants.TOTAL_WT_VAL
 import com.appwork.util.Constants.WT_CHARGES_VAL
 import kotlinx.android.synthetic.main.activity_consent.*
 
-class ConsentActivity : AppCompatActivity() {
+class ConsentActivity : AppCompatActivity(), ChangeValueFragment.ChangeValueCallback {
     private var weightingCharges: Int? = null
     private var pieces: Int? = null
     private var rates: Int? = null
@@ -80,7 +82,7 @@ class ConsentActivity : AppCompatActivity() {
         tvTotalAadatCharges.text = strAdatCharge
         tvCovFee.text = adatTotal.toString()
         val totalAmount = cropAmount!! - adatTotal
-        val strTotalAmount = totalAmount.toInt().toString() + getString(R.string.txt_rs)
+        val strTotalAmount = totalAmount.toString() + getString(R.string.txt_rs)
         tvTotalAMount.text = strTotalAmount
         btnSave.setOnClickListener {
             val intent = Intent(this, CustomerBillDetailsActivity::class.java)
@@ -94,9 +96,20 @@ class ConsentActivity : AppCompatActivity() {
             intent.putExtra(FINAL_TOTAL_VAL, totalAmount)
             startActivity(intent)
         }
+        tvTotalAMount.setOnClickListener {
+           val fragment=ChangeValueFragment()
+            val arg = Bundle()
+                arg.putString("oldValue",strTotalAmount)
+            fragment.arguments=arg
+            fragment.show(supportFragmentManager,"")
+        }
     }
 
     private fun calculateCropAmount(total: Int, rates: Int): Int {
         return total * rates
+    }
+
+    override fun getValues(oldValue: String, newValue: String) {
+        tvTotalAMount.text=newValue+getString(R.string.txt_rs)
     }
 }

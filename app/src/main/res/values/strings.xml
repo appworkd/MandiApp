@@ -46,4 +46,10 @@
     <string name="txt_enter_pieces">Enter pieces</string>
     <string name="txt_enter_pieces_wt">Enter pieces wt</string>
     <string name="txt_enter_remain_wt">Enter remain wt</string>
+    <string name="txt_change_value">Change value</string>
+    <string name="txt_older_value">Older value</string>
+    <string name="txt_new_value">New value</string>
+    <string name="txt_done">Done</string>
+    <string name="txt_enter_new_value">Enter new value</string>
+
 </resources>
