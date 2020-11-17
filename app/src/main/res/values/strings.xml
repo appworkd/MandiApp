@@ -41,4 +41,9 @@
     <string name="txt_slogan">Hissab hua asan</string>
     <string name="txt_add">Add</string>
     <string name="txt_amount">Amount</string>
+    <string name="txt_enter_charges">Enter charges</string>
+    <string name="txt_enter_wt_charges">Enter wt charges</string>
+    <string name="txt_enter_pieces">Enter pieces</string>
+    <string name="txt_enter_pieces_wt">Enter pieces wt</string>
+    <string name="txt_enter_remain_wt">Enter remain wt</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.appwork.mandiapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.appwork.util.Constants.AADAT_CHARGES_VAL
 import com.appwork.util.Constants.CROP_AMOUNT_VAL
 import com.appwork.util.Constants.FINAL_TOTAL_VAL
@@ -11,7 +11,6 @@ import com.appwork.util.Constants.RATES_VAL
 import com.appwork.util.Constants.REMAIN_WT_VAL
 import com.appwork.util.Constants.TOTAL_WT_VAL
 import kotlinx.android.synthetic.main.activity_customer_bill_details.*
-import kotlinx.android.synthetic.main.container_seller.*
 import org.joda.time.LocalDate
 
 class CustomerBillDetailsActivity : AppCompatActivity() {
@@ -52,7 +51,8 @@ class CustomerBillDetailsActivity : AppCompatActivity() {
         }
         if (intent.hasExtra(AADAT_CHARGES_VAL)) {
             aadatCharge = intent.getIntExtra(AADAT_CHARGES_VAL, 0)
-            tvCAadatTotal.text = "- ${aadatCharge.toString()}"
+            val strMandiCharges = "- ${aadatCharge.toString()}"
+            tvCAadatTotal.text = strMandiCharges
         }
         if (intent.hasExtra(FINAL_TOTAL_VAL)) {
             totalAmount = intent.getIntExtra(FINAL_TOTAL_VAL, 0)

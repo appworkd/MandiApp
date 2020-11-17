@@ -1,11 +1,11 @@
 package com.appwork.mandiapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.appwork.util.Constants.PIECE_VAL
 import com.appwork.util.Constants.PIECE_WT_VAL
 import com.appwork.util.Constants.REMAIN_WT_VAL
@@ -21,17 +21,17 @@ class WeightActivity : AppCompatActivity(), TextWatcher {
         floatingActionButton.setOnClickListener {
             if (edtPieces.text.isNullOrEmpty()) {
                 tilPieces.isErrorEnabled = true
-                tilPieces.error = "Enter Pieces"
+                tilPieces.error = getString(R.string.txt_enter_pieces)
                 return@setOnClickListener
             }
             if (edtPiecesWt.text.isNullOrEmpty()) {
                 tilPiecesWt.isErrorEnabled = true
-                tilPiecesWt.error = "Enter Pieces Wt"
+                tilPiecesWt.error = getString(R.string.txt_enter_pieces_wt)
                 return@setOnClickListener
             }
             if (edtRemainWt.text.isNullOrEmpty()) {
                 tilRemainWt.isErrorEnabled = true
-                tilRemainWt.error = "Enter Remain wt"
+                tilRemainWt.error = getString(R.string.txt_enter_remain_wt)
                 return@setOnClickListener
             }
             calculate()
@@ -44,10 +44,10 @@ class WeightActivity : AppCompatActivity(), TextWatcher {
         val remainWtValue = edtRemainWt.text?.trim().toString().toInt()
         val totalWt = (pieceValue * pieceWtValue) + remainWtValue
         val intent = Intent(this, RatesActivity::class.java)
-        intent.putExtra(TOTAL_WT_VAL,totalWt)
-        intent.putExtra(PIECE_VAL,pieceValue)
-        intent.putExtra(PIECE_WT_VAL,pieceWtValue)
-        intent.putExtra(REMAIN_WT_VAL,remainWtValue)
+        intent.putExtra(TOTAL_WT_VAL, totalWt)
+        intent.putExtra(PIECE_VAL, pieceValue)
+        intent.putExtra(PIECE_WT_VAL, pieceWtValue)
+        intent.putExtra(REMAIN_WT_VAL, remainWtValue)
         startActivity(intent)
     }
 

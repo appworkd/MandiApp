@@ -1,9 +1,8 @@
 package com.appwork.mandiapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.appwork.util.Constants
+import androidx.appcompat.app.AppCompatActivity
 import com.appwork.util.Constants.AADAT_CHARGES_VAL
 import com.appwork.util.Constants.CROP_AMOUNT_VAL
 import com.appwork.util.Constants.FINAL_TOTAL_VAL
@@ -49,7 +48,8 @@ class ConsentActivity : AppCompatActivity() {
         }
         if (intent.hasExtra(TOTAL_WT_VAL)) {
             total = intent.getIntExtra(TOTAL_WT_VAL, 0)
-            tvTotalWtValue.text = total.toString() + " Kgs"
+            val strTotalWt = total.toString() + getString(R.string.txt_kgs)
+            tvTotalWtValue.text = strTotalWt
             tvTotalWtCropValue.text = total.toString()
         }
         if (intent.hasExtra(WT_CHARGES_VAL)) {
@@ -60,8 +60,9 @@ class ConsentActivity : AppCompatActivity() {
             adatChargeValue = aadatCharges!!.toFloat() / 1000
         }
         if (total != null && rates != null) {
-            cropAmount = (calculateCropAmount(total!!, rates!!).toInt()) / 100;
-            tvTotalCropValue.text = cropAmount!!.toString() + " Rs."
+            cropAmount = (calculateCropAmount(total!!, rates!!)) / 100;
+            val strCropValue = cropAmount!!.toString() + getString(R.string.txt_rs)
+            tvTotalCropValue.text = strCropValue
             tvCropTotal.text = cropAmount.toString()
         }
         if (intent.hasExtra(PIECE_FOR_CAL_VAL)) {
@@ -75,20 +76,22 @@ class ConsentActivity : AppCompatActivity() {
         val aadatChanrges = (cropAmount!! * adatChargeValue!!).toInt()
         tvaadatCharges.text = aadatChanrges.toString()
         val adatTotal = aadatChanrges + weightingCharges!!
-        tvTotalAadatCharges.text = adatTotal.toInt().toString() + " Rs."
+        val strAdatCharge = adatTotal.toInt().toString() + getString(R.string.txt_rs)
+        tvTotalAadatCharges.text = strAdatCharge
         tvCovFee.text = adatTotal.toString()
         val totalAmount = cropAmount!! - adatTotal
-        tvTotalAMount.text = totalAmount.toInt().toString() + " Rs."
+        val strTotalAmount = totalAmount.toInt().toString() + getString(R.string.txt_rs)
+        tvTotalAMount.text = strTotalAmount
         btnSave.setOnClickListener {
             val intent = Intent(this, CustomerBillDetailsActivity::class.java)
-            intent.putExtra(TOTAL_WT_VAL,total)
-            intent.putExtra(PIECE_VAL,pieces)
-            intent.putExtra(PIECE_WT_VAL,pieceWt)
-            intent.putExtra(REMAIN_WT_VAL,remainWt)
-            intent.putExtra(RATES_VAL,rates)
-            intent.putExtra(CROP_AMOUNT_VAL,cropAmount)
-            intent.putExtra(AADAT_CHARGES_VAL,adatTotal)
-            intent.putExtra(FINAL_TOTAL_VAL,totalAmount)
+            intent.putExtra(TOTAL_WT_VAL, total)
+            intent.putExtra(PIECE_VAL, pieces)
+            intent.putExtra(PIECE_WT_VAL, pieceWt)
+            intent.putExtra(REMAIN_WT_VAL, remainWt)
+            intent.putExtra(RATES_VAL, rates)
+            intent.putExtra(CROP_AMOUNT_VAL, cropAmount)
+            intent.putExtra(AADAT_CHARGES_VAL, adatTotal)
+            intent.putExtra(FINAL_TOTAL_VAL, totalAmount)
             startActivity(intent)
         }
     }

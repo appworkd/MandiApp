@@ -43,12 +43,12 @@ class ChargesActivity : AppCompatActivity(), TextWatcher {
         fabGo.setOnClickListener {
             if (edtWtCharges.text.isNullOrEmpty()) {
                 tilWtCharge.isErrorEnabled = true
-                tilWtCharge.error = "Please enter wt charges"
+                tilWtCharge.error = getString(R.string.txt_enter_wt_charges)
                 return@setOnClickListener
             }
             if (edtCalPieces.text.isNullOrEmpty()) {
                 tilCalPieces.isErrorEnabled = true
-                tilCalPieces.error = "Please enter pieces"
+                tilCalPieces.error = getString(R.string.txt_enter_pieces)
                 return@setOnClickListener
             }
             val intent = Intent(this, AadatChargeActivity::class.java)

@@ -37,7 +37,7 @@ class RatesActivity : AppCompatActivity(), TextWatcher {
         fabDone.setOnClickListener {
             if (edtRates.text.toString().isEmpty()) {
                 tilRates.isErrorEnabled = true
-                tilRates.error = "Please enter rates"
+                tilRates.error = getString(R.string.txt_enter_rates)
                 return@setOnClickListener
             }
             val rates = edtRates.text.toString().toInt()

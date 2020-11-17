@@ -56,7 +56,7 @@ class AadatChargeActivity : AppCompatActivity(), TextWatcher {
         fabAdat.setOnClickListener {
             if (edtAdatCharge.text.isNullOrEmpty()) {
                 tilAdatCharge.isErrorEnabled = true
-                tilAdatCharge.error = "Enter charges"
+                tilAdatCharge.error = getString(R.string.txt_enter_charges)
                 return@setOnClickListener
             }
             val intent = Intent(this, ConsentActivity::class.java)
